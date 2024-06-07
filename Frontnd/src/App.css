@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.bg {
+  background-image: url(./Images/pic2.jpg);
+  height: 270px;
+}
