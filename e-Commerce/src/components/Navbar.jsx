@@ -27,7 +27,7 @@ const Navbar = ({ setData, cart }) => {
       <header className="sticky-top">
         <div className="nav-bar">
           <Link to={"/"} className="brand">
-            K4A{" "}
+            E-COM{" "}
           </Link>
 
           <form onSubmit={handleSubmit} className="search-bar">
@@ -35,7 +35,7 @@ const Navbar = ({ setData, cart }) => {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               type="text"
-              placeholder="Search in  K4A.in"
+              placeholder="Search in  E_COM.in"
             />
           </form>
 
