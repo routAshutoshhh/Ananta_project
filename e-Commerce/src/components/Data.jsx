@@ -98,4 +98,37 @@ export const items = [
       "Fevicryl Mould It, 900 g, Clay Set for Modelling and Sculpting, Air Dry Clay for Art and Craft, Gift for Artists, Students, Children ",
     price: "₹285",
   },
+  {
+    id: 18,
+    category: "Books",
+    title: "Books For Personal Growth & Wealth",
+    imgSrc: "https://m.media-amazon.com/images/I/71TqdH9wTmL.SL1500.jpg",
+    amazonLink:
+      "https://www.amazon.in/Worlds-Greatest-Personal-Growth-Wealth/dp/9389432014/ref=sr_1_1_sspa?crid=169P9YVA6J0YX&dib=eyJ2IjoiMSJ9.6BAIxVIIPgk_oRwgfOCg8nR2h6eq_pGY2o9jZtpZB0GNwxbH_M-Xr3VSoYnmFBzxUvru4pA5CZtSdAeabxqH1YxlGjTmGWE00xaRe1vb8EAPZ4eFBb6p73DXzLCdiC2bVFmaQEDNUmjGfQvBE9PTwSRC5bRktfFhrQwUdKqmWRIX6yzp50cX_RO584NfTE9F2R7R3BN1LRHKw46GWnQX05wTws6lCrgfzYL5SYCq-9g.m7fcodkY30l-KTuUExL0rchnr-WIUhrdIWQRu6BnHp8&dib_tag=se&keywords=Books&qid=1718964040&sprefix=books%2Caps%2C253&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    description:
+      "World's Greatest Books For Personal Growth & Wealth (Set of 4 Books) : Perfect Motivational Gift Set",
+    price: "₹349",
+  },
+  {
+    id: 98,
+    category: "Art and Craft",
+    title: "Fevicryl Mould It",
+    imgSrc: "https://m.media-amazon.com/images/I/51jk3V7lKDL.SX679.jpg",
+    amazonLink:
+      "https://www.amazon.in/Fevicryl-Hobby-ideas-Mould-800/dp/B07HRV1YZW/ref=sr_1_6?crid=H9MPBEXUITGR&dib=eyJ2IjoiMSJ9.QH4nS3mJaYF0eCwHsTOWWIvCqYbFIx8g7-T2cvyM2F1UG4qYoUqvBnOsQV-WIill7ire7_0RglPhLPi68X7P4X_FknhzR2wF9a6WBfE0l4bhiMXlwMn-a2sfPj0MAEdmyOlNkiO6HtNqpzeRH79ric-gM6Xu7i6I-PVB4wbCNyHNhZ0aTWdTO5alVBub5kbwVrBx45jH8KaQiy4l7BvYlSgHw3o0AWsolI7w7Uxa-ngfbFdk2Ij--TEsMjtNLD7-v92iL-1ocDyzClBcE749lxt3P6P6v2RAoEVjNvN_bok.6HYSgb3XY6KoruwsNTRCv1NRbMNJ4xYtRvtozNMOP68&dib_tag=se&keywords=Art+and+Craft&qid=1718964241&sprefix=art+and+craft%2Caps%2C369&sr=8-6",
+    description:
+      "Fevicryl Mould It, 900 g, Clay Set for Modelling and Sculpting, Air Dry Clay for Art and Craft, Gift for Artists, Students, Children ",
+    price: "₹285",
+  },
+  {
+    id: 21,
+    category: "Desktop Organisers",
+    title: "Evercozy Compartment Metal Mesh Desk Organizer",
+    imgSrc: "https://m.media-amazon.com/images/I/71bkKXiE4GL.SX679.jpg",
+    amazonLink:
+      "https://www.amazon.in/EVERCOZY-Compartment-Organizer-Stationary-COMPARTMENT/dp/B09KTTZ6CK/ref=sr_1_10?crid=2X0W6KF69ETFH&dib=eyJ2IjoiMSJ9.HDvhdclGSQPupbda-l9CP88iedJJB17K0ZFVJZKBCN9bBszEOyIjPuUlA7KHJsPBJlgUISrW67q-IV4gB0OlIDt2MBaZ1Vz6mkhQatxBbBCL-wrQ3hE0efEwuKxwP-M0xtfJpqWql7Aqno6n-gcANOLFXCBDfXujAbaqaSbxaj6Wmtpm0YGXiAyLiICLbUrV6scNiqa8DmtxjliepFFUmWzIXf-gjzhomVsiS1s_ZXXnBNhwB0zFY4Xtvb0ZopQaKdjLI-YIHlc0A_6AqwZl-rZr0oO35-myVNnhdoP0Z0I.Ln4QSuzAQKmUKuVqhYM_4Nde_LD2NvnqMmZ13xuImC4&dib_tag=se&keywords=pen+holder&qid=1718963491&sprefix=pen+holder%2Caps%2C267&sr=8-10",
+    description:
+      "Evercozy Compartment Metal Mesh Desk Organizer Stationary Storage Stand Pen, Pencil Holder For Office, Home, And Study Table (4 Compartment), Black",
+    price: " ₹229",
+  },
 ];

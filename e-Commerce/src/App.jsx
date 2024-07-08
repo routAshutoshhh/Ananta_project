@@ -1,40 +1,39 @@
-import React, { useState } from "react";
-import Navbar from "./components/Navbar";
-import Product from "./components/Product";
+import React, { useContext } from "react";
+import AppContext from "./context/AppContext";
+import ShowProduct from "./components/product/ShowProduct";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProductDetail from "./components/ProductDetail";
-import Search from "./components/Search";
+import ProductDetail from "./components/product/ProductDetail";
+import Navbar from "./components/Navbar";
+import SearchProduct from "./components/product/SearchProduct";
+import Register from "./components/user/Register";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Login from "./components/user/Login";
+import Profile from "./components/user/Profile";
 import Cart from "./components/Cart";
-import { items } from "./components/Data";
+import Address from "./components/Address";
+import Checkout from "./components/Checkout";
+import OrderConfirmation from "./components/OrderConfirmation";
 
-function App() {
-  const [data, setData] = useState([...items]);
-  const [cart, setCart] = useState([]);
+const App = () => {
   return (
-    <div>
-      <Router>
-        <Navbar cart={cart} setData={setData} />
-        <Routes>
-          <Route
-            path="/"
-            element={<Product cart={cart} setCart={setCart} items={data} />}
-          />
-          <Route
-            path="/product/:id"
-            element={<ProductDetail cart={cart} setCart={setCart} />}
-          />
-          <Route
-            path="/search/:term"
-            element={<Search cart={cart} setCart={setCart} />}
-          />
-          <Route
-            path="/cart"
-            element={<Cart cart={cart} setCart={setCart} />}
-          />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Navbar />
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<ShowProduct />} />
+        <Route path="/product/search/:term" element={<SearchProduct />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/shipping" element={<Address />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/oderconfirmation" element={<OrderConfirmation />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

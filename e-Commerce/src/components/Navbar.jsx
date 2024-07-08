@@ -1,104 +1,144 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { items } from "./Data";
-import { GiShoppingCart } from "react-icons/gi";
+import AppContext from "../context/AppContext";
 
-const Navbar = ({ setData, cart }) => {
-  const location = useLocation();
-  //to navigate into the other search part
+const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState(" ");
   const navigate = useNavigate();
-  //using usewState hook for implementing search technique
-  const [searchValue, setSearchValue] = useState("");
+  const location = useLocation();
 
-  //funtion for handling submit
-  const handleSubmit = (e) => {
+  const { setFilteredData, products, logout, isAuthenticated, cart } =
+    useContext(AppContext);
+  const filterbyCategory = (cat) => {
+    setFilteredData(
+      products.filter(
+        (data) => data.category.toLowerCase() == cat.toLowerCase()
+      )
+    );
+  };
+  const filterbyPrice = (price) => {
+    setFilteredData(products.filter((data) => data.price >= price));
+  };
+
+  const submitHandler = (e) => {
     e.preventDefault();
-    navigate(`/search/${searchValue}`);
+    navigate(`/product/search/${searchTerm}`);
+    setSearchTerm(" ");
   };
-
-  //this is for the filter ,function for filtering
-  const filterByCategory = (category) => {
-    const element = items.filter((product) => product.category === category);
-    setData(element);
-  };
-
   return (
     <>
-      <header className="sticky-top">
-        <div className="nav-bar">
-          <Link to={"/"} className="brand">
-            E-COM{" "}
+      <div className="nav sticky-top">
+        <div className="nav_bar">
+          <Link
+            to={"/"}
+            className="left"
+            style={{ textDecoration: "none", color: "white" }}>
+            <h3>MERN E - Commerce</h3>
           </Link>
-
-          <form onSubmit={handleSubmit} className="search-bar">
+          <form className="search_bar" onSubmit={submitHandler}>
+            <span className="material-symbols-outlined">search</span>{" "}
             <input
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               type="text"
-              placeholder="Search in  E_COM.in"
+              placeholder="Search Products..."
             />
           </form>
+          <div className="right">
+            {isAuthenticated && (
+              <>
+                <Link
+                  to={"/cart"}
+                  type="button"
+                  className="btn btn-primary position-relative mx-3">
+                  <span className="material-symbols-outlined">
+                    shopping_cart
+                  </span>
 
-          <Link to={"/cart"} className="cart">
-            <button type="button" className="btn btn-primary position-relative">
-              <GiShoppingCart style={{ fontSize: "2rem" }} />
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {cart.length}
-                <span className="visually-hidden">unread messages</span>
-              </span>
-            </button>
-          </Link>
+                  {cart?.items?.length > 0 && (
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      {cart?.items?.length}
+                      <span className="visually-hidden">unread messages</span>
+                    </span>
+                  )}
+                </Link>
+
+                <Link to={"/profile"} className="btn btn-info mx-3">
+                  profile
+                </Link>
+                <button
+                  className="btn btn-danger mx-3"
+                  onClick={() => {
+                    logout();
+                    navigate("/");
+                  }}>
+                  logout
+                </button>
+              </>
+            )}
+
+            {!isAuthenticated && (
+              <>
+                <Link to={"/login"} className="btn btn-secondary mx-3">
+                  login
+                </Link>
+                <Link to={"/register"} className="btn btn-info mx-3">
+                  register
+                </Link>
+              </>
+            )}
+          </div>
         </div>
 
         {location.pathname == "/" && (
-          <div className="nav-bar-wrapper">
-            <div className="item">filters:</div>
+          <div className="sub_bar">
             <div
-              onClick={() => filterByCategory("Paper Products")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Paper Products")}>
               Paper Products
             </div>
             <div
-              onClick={() => filterByCategory("Desktop Instruments")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Desktop Instruments")}>
               Desktop Instruments
             </div>
             <div
-              onClick={() => filterByCategory("Drawing Instruments")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Drawing Instruments")}>
               Drawing Instruments
             </div>
             <div
-              onClick={() => filterByCategory("Desktop Organisers")}
-              className="item">
-              Desktop Organisers
+              className="items"
+              onClick={() => filterbyCategory("Desktop Organisers")}>
+              Desktop Organiser
             </div>
             <div
-              onClick={() => filterByCategory("Consumables")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Consumables")}>
               Consumables
             </div>
             <div
-              onClick={() => filterByCategory("Filling and Storage")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Filling and Storage")}>
               Filling and Storage
             </div>
             <div
-              onClick={() => filterByCategory("Writing Accessories")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Writing Accessories")}>
               Writing Accessories
             </div>
-            <div onClick={() => filterByCategory("Books")} className="item">
+            <div className="items" onClick={() => filterbyCategory("Books")}>
               Books
             </div>
             <div
-              onClick={() => filterByCategory("Art and Craft")}
-              className="item">
+              className="items"
+              onClick={() => filterbyCategory("Art and Craft")}>
               Art and Craft
             </div>
           </div>
         )}
-      </header>
+      </div>
     </>
   );
 };
