@@ -5,7 +5,7 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AppState = (props) => {
-  const url = "https://ecom.com/api";
+  const url = "http://localhost:3000";
 
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState([]);
@@ -43,8 +43,6 @@ const AppState = (props) => {
       setToken(lstoken);
       setIsAuthenticated(true);
     }
-
-    // setToken(localStorage.getItem('token'))
   }, []);
 
   // register user
