@@ -1,90 +1,69 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { items } from "../Data";
-import Product from "../Product";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import RelatedProduct from "./RelatedProduct";
 
-const ProductDetail = ({ cart, setCart }) => {
+const ProductDetail = () => {
+  const [product, setProduct] = useState();
   const { id } = useParams();
-
-  const [product, setProduct] = useState({});
-  const [relatedProducts, setRelatedProducts] = useState([]);
+  const url = "http://localhost:3000/api";
 
   useEffect(() => {
-    const filterProduct = items.filter((produ) => produ.id == id);
-    setProduct(filterProduct[0]);
-
-    const relatedProducts = items.filter(
-      (p) => p.category === product.category
-    );
-
-    setRelatedProducts(relatedProducts);
-  }, [id, product.category]);
-
-  const addToCart = (id, price, title, description, imgSrc) => {
-    const obj = {
-      id,
-      price,
-      title,
-      description,
-      imgSrc,
+    const fetchProduct = async () => {
+      const api = await axios.get(`${url}/product/${id}`, {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      });
+      //   console.log(api.data.product);
+      setProduct(api.data.product);
+      //   setProducts(api.data.products);
     };
-    setCart([...cart, obj]);
-
-    toast.success("Item Added into the Cart!", {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
+    fetchProduct();
+  }, [id]);
   return (
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-
-      <div className="container con ">
-        <div className="img">
-          <img src={product.imgSrc} alt="" />
+      <div
+        className="container text-center my-5"
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}>
+        <div className="left">
+          <img
+            src={product?.imgSrc}
+            alt=""
+            style={{
+              width: "250px",
+              height: "250px",
+              borderRadius: "10px",
+              border: "2px solid yellow",
+            }}
+          />
         </div>
-        <div className="text-center">
-          <h1 className="card-title">{product.title}</h1>
-          <p className="card-text">{product.description}</p>
-          <button className="btn btn-primary">₹ {product.price}</button>
-          <button
-            onClick={() =>
-              addToCart(
-                product.id,
-                product.price,
-                product.title,
-                product.description,
-                product.imgSrc
-              )
-            }
-            className="btn btn-warning mx-3">
-            Add to cart
-          </button>
+        <div className="right">
+          <h1>{product?.title}</h1>
+          <p>{product?.description}</p>
+          <h1>
+            {product?.price} {"₹"}
+          </h1>
+          {/* <h3>{product.category}</h3> */}
+          <div className="my-5">
+            <button
+              className="btn btn-danger mx-3"
+              style={{ fontWeight: "bold" }}>
+              Buy Now
+            </button>
+            <button className="btn btn-warning" style={{ fontWeight: "bold" }}>
+              Add To Cart
+            </button>
+          </div>
         </div>
       </div>
 
-      <h1 className="text-center">Related Products</h1>
-      <Product cart={cart} setCart={setCart} items={relatedProducts} />
+      <RelatedProduct category={product?.category} />
     </>
   );
 };

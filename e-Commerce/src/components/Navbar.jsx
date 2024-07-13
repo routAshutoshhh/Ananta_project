@@ -17,9 +17,6 @@ const Navbar = () => {
       )
     );
   };
-  const filterbyPrice = (price) => {
-    setFilteredData(products.filter((data) => data.price >= price));
-  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -34,15 +31,15 @@ const Navbar = () => {
             to={"/"}
             className="left"
             style={{ textDecoration: "none", color: "white" }}>
-            <h3>MERN E - Commerce</h3>
+            <h3>k4A E-com</h3>
           </Link>
           <form className="search_bar" onSubmit={submitHandler}>
-            <span className="material-symbols-outlined">search</span>{" "}
+            <span className="material-symbols-outlined"></span>{" "}
             <input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               type="text"
-              placeholder="Search Products..."
+              placeholder="Search Products in k4A..."
             />
           </form>
           <div className="right">
@@ -84,7 +81,7 @@ const Navbar = () => {
                   login
                 </Link>
                 <Link to={"/register"} className="btn btn-info mx-3">
-                  register
+                  Signup
                 </Link>
               </>
             )}
