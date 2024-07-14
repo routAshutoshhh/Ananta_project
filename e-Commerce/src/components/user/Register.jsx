@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import AppContext from "../../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const Register = () => {
   const { register } = useContext(AppContext);
@@ -86,6 +86,12 @@ const Register = () => {
             </button>
           </div>
         </form>
+        <p>
+          Supplier?{" "}
+          <NavLink to="/slogin" className="text-lg px-2">
+            Sign In as Supplier
+          </NavLink>{" "}
+        </p>
       </div>
     </>
   );

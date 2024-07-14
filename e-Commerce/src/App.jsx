@@ -14,6 +14,8 @@ import Cart from "./components/Cart";
 import Address from "./components/Address";
 import Checkout from "./components/Checkout";
 import OrderConfirmation from "./components/OrderConfirmation";
+import SLogin from "./components/supplier/supplierLogin/SLogin.jsx";
+import SupSignUp from "./components/supplier/supplierLogin/SupSignUp.jsx";
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/shipping" element={<Address />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/oderconfirmation" element={<OrderConfirmation />} />
+        <Route path="/slogin" element={<SLogin />} />
+        <Route path="/SupplierSignUp" element={<SupSignUp />} />
       </Routes>
     </Router>
   );

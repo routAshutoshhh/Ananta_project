@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import AppContext from "../../context/AppContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
+import SLogin from "../supplier/supplierLogin/SLogin.jsx";
 
 const Login = () => {
   const { login } = useContext(AppContext);
@@ -71,6 +72,12 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <div>
+          <b>Supplier, GO to supplier Login</b>
+          <NavLink to="/slogin" className="text-lg px-2">
+            Supplier Sign-In
+          </NavLink>
+        </div>
       </div>
     </>
   );
