@@ -71,12 +71,6 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <div>
-          <b>Supplier, GO to supplier Login</b>
-          <NavLink to="/slogin" className="text-lg px-2">
-            Supplier Sign-In
-          </NavLink>
-        </div>
       </div>
     </>
   );

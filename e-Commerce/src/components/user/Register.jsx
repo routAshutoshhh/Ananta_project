@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import AppContext from "../../context/AppContext";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { register } = useContext(AppContext);
@@ -18,7 +18,7 @@ const Register = () => {
   const { name, email, password } = formData;
   const submitHandler = async (e) => {
     e.preventDefault();
-    // alert("Your form has been submited")
+    alert("Your form has been submited");
 
     const result = await register(name, email, password);
 
@@ -26,7 +26,7 @@ const Register = () => {
       navigate("/login");
     }
 
-    // console.log(formData);
+    console.log(formData);
   };
   return (
     <>
@@ -86,12 +86,6 @@ const Register = () => {
             </button>
           </div>
         </form>
-        <p>
-          Supplier?{" "}
-          <NavLink to="/slogin" className="text-lg px-2">
-            Sign In as Supplier
-          </NavLink>{" "}
-        </p>
       </div>
     </>
   );

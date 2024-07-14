@@ -5,7 +5,6 @@ import userRouter from "./Routes/user.js";
 import productRouter from "./Routes/product.js";
 import cartRouter from "./Routes/cart.js";
 import addressRouter from "./Routes/address.js";
-import paymentRouter from "./Routes/payment.js";
 import cors from "cors";
 
 const app = express();
@@ -36,7 +35,7 @@ app.use("/api/cart", cartRouter);
 app.use("/api/address", addressRouter);
 
 // payment Router
-app.use("/api/payment", paymentRouter);
+// app.use("/api/payment", paymentRouter);
 
 mongoose
   .connect(
