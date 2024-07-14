@@ -5,7 +5,7 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AppState = (props) => {
-  const url = "http://localhost:3000";
+  const url = "http://localhost:11944";
 
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState([]);
@@ -19,11 +19,12 @@ const AppState = (props) => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const api = await axios.get(`${url}/product/all`, {
+      const api = await axios.get(`${url}/stationary-items`, {
         headers: {
           "Content-Type": "Application/json",
         },
         withCredentials: true,
+        url: "requisitions",
       });
       console.log(api.data.products);
       setProducts(api.data.products);
@@ -48,7 +49,7 @@ const AppState = (props) => {
   // register user
   const register = async (name, email, password) => {
     const api = await axios.post(
-      `${url}/user/register`,
+      `${url}/users`,
       { name, email, password },
       {
         headers: {

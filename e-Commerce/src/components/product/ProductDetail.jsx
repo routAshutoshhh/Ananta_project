@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -6,7 +7,7 @@ import RelatedProduct from "./RelatedProduct";
 const ProductDetail = () => {
   const [product, setProduct] = useState();
   const { id } = useParams();
-  const url = "http://localhost:3000/api";
+  const url = "http://localhost:11944";
 
   useEffect(() => {
     const fetchProduct = async () => {

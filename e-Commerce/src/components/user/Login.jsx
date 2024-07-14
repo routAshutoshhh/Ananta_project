@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import AppContext from "../../context/AppContext";
 import { useNavigate, Link, NavLink } from "react-router-dom";
-import SLogin from "../supplier/supplierLogin/SLogin.jsx";
 
 const Login = () => {
   const { login } = useContext(AppContext);
